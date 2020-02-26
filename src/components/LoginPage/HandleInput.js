@@ -1,5 +1,5 @@
-import {useState} from 'react'
-import {validatePassword, validateEmail, notiContent} from '../../utils/common'
+import { useState, useEffect } from 'react'
+import { validatePassword, validateEmail, notiContent } from '../../utils/common'
 
 export const UseFormIput = (initValue, type) => {
   const [value, setValue] = useState(initValue)
@@ -8,8 +8,11 @@ export const UseFormIput = (initValue, type) => {
     setValue(e.target.value)
     notification.validateValue(e.target.value)
   }
-  console.log(type + ' = ' + value)
-  return {value, onChange: handleChange, noti: notification.noti}
+  useEffect(() => {
+    console.log(type + ' = ' + value);
+  }, [value]);
+
+  return { value, onChange: handleChange, noti: notification.noti }
 }
 
 const HandleNoti = (initNoti, type) => {
@@ -21,5 +24,5 @@ const HandleNoti = (initNoti, type) => {
       validatePassword(value) ? setNoti(null) : setNoti(notiContent.pass)
     }
   }
-  return {noti, validateValue: validateValue}
+  return { noti, validateValue: validateValue }
 }

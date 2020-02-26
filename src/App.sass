@@ -1,0 +1,50 @@
+.App
+  text-align: center
+
+.center-center
+  display: flex
+  flex-direction: row
+  flex-wrap: wrap
+  justify-content: center
+  align-items: center
+
+.notification
+  font-weight: 500
+  font-size: 16px
+
+.h-pointer:hover
+  cursor: pointer
+
+.tooltip
+  position: relative
+  display: inline-block
+  opacity: 1
+
+.tooltip .tooltiptext
+  visibility: hidden
+  width: max-content
+  background-color: black
+  color: #fff
+  text-align: center
+  border-radius: 6px
+  padding: 5px 10px
+  position: absolute
+  z-index: 1
+  top: 120%
+  right: -20%
+  margin-left: -60px
+  ::after
+    content: ""
+    position: absolute
+    bottom: 100%
+    left: 50%
+    margin-left: -5px
+    border-width: 5px
+    border-style: solid
+    border-color: transparent transparent black transparent
+
+.tooltip:hover .tooltiptext
+  visibility: visible
+
+.body
+  padding-top: 50px
